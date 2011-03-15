@@ -1,0 +1,4 @@
+MAPPING = {
+    "" : "name",
+    "" : "sex",
+}
