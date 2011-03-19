@@ -14,8 +14,11 @@ Contents:
    usage
    all_fields
    mapping_config
+   templates
    tests
    implementation
+   issues
+
 
 Quick Instructions
 ======================

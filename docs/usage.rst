@@ -1,6 +1,9 @@
+.. _usage:
+
 ===================================
 How to Use this script
 ===================================
+
 
 You can follow the instructions below:
 

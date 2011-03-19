@@ -1,0 +1,8 @@
+The templates directory includes the most popular contact 
+providers' filed_mapping.py to serve as the field mapping
+config in the script.
+
+The popular contact providers include:
+
+* Microsoft Outlook
+* ect.
