@@ -1,4 +1,0 @@
-MAPPING = {
-    "" : "name",
-    "" : "sex",
-}

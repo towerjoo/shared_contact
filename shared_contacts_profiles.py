@@ -874,6 +874,10 @@ class OutlookSerializer(object):
     contact_entry = gdata.contacts.data.ContactEntry()
 
     def GetField(name):
+      # Edited by Tower Joo @ 2011/3/19
+      # reformatting the fields name based on the fields mapping config
+      import fields_mapping
+      name = fields_mapping.MAPPING.get(name, name) # use the mapping field if hit
       value = fields.get(name) or ""
       return value.strip()
 
@@ -926,6 +930,8 @@ class OutlookSerializer(object):
           gdata.contacts.data.Website(
             href=website,
             rel=rel))
+
+    # we can add more customized fields here
 
     return contact_entry
 
