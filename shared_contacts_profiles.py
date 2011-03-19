@@ -876,8 +876,12 @@ class OutlookSerializer(object):
     def GetField(name):
       # Edited by Tower Joo @ 2011/3/19
       # reformatting the fields name based on the fields mapping config
-      import fields_mapping
-      name = fields_mapping.MAPPING.get(name, name) # use the mapping field if hit
+      try:
+        import fields_mapping
+        name = fields_mapping.MAPPING.get(name, name) # use the mapping field if hit
+      except ImportError:
+        raise ImportError("Need the fields_mapping module")
+        exit(0)
       value = fields.get(name) or ""
       return value.strip()
 
@@ -1067,14 +1071,14 @@ parameters in the command line."""
 
   if not filter(None, (import_csv_file_name, export_csv_file_name, clear)):
     parser.print_help()
-    parser.exit(msg='\nNothing to do: specify --import, --export, or --clear')
+    parser.exit(msg='\nNothing to do: specify --import, --export, or --clear\n')
   if output_csv_file_name and not import_csv_file_name:
     parser.print_help()
-    parser.exit(msg='\n--output can be set only with --import')
+    parser.exit(msg='\n--output can be set only with --import\n')
 
   # Retrieve the domain from the admin email address
   if not admin_email:
-    parser.error('Please set the --admin command-line option')
+    parser.error('Please set the --admin command-line option\n')
   domain_index = admin_email.find('@')
   if domain_index < 0:
     parser.error('Invalid admin email address: %s\n' % admin_email)
